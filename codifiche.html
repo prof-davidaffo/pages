@@ -1,14 +1,32 @@
-<!DOCTYPE html>
+<!DO
+  <h3>Perché proprio il bit — il sistema binario</h3>
+  <p>La scelta di usare il <strong>bit</strong> come unità elementare dell'informazione non è casuale: è il frutto di ragioni fisiche, logiche e pratiche che lo rendono superiore a qualsiasi altra alternativa.</p>
+
+  <p>Un bit corrisponde a due soli stati possibili: <strong>0</strong> e <strong>1</strong>. Nella realtà fisica questi stati si traducono in <em>tensione alta o bassa</em> in un circuito elettronico, <em>magnetizzato o non magnetizzato</em> in un disco, <em>riflette o non riflette</em> in un CD. Il fatto che esistano solo <strong>due stati ben distinti</strong> porta a un vantaggio enorme: la <strong>resistenza agli errori</strong>.</p>
+
+  <div class="box box-esempio">
+    <div class="box-label">Esempio — Perché due stati sono meglio di dieci</div>
+    <p>Immagina di trasmettere un segnale su un cavo. Con il sistema decimale, dovresti distinguere 10 livelli di tensione diversi (0V, 1V, 2V… 9V). Un minimo disturbo elettrico — il motore di un frigorifero nelle vicinanze, un'interferenza radio — può spostare il segnale da 3V a 3,2V e il ricevitore non capisce più se era un 3 o un 4. Con il sistema binario, invece, basta distinguere solo due stati: "basso" (sotto 2,5V) e "alto" (sopra 2,5V). Un disturbo deve essere enorme per far sembrare uno 0 un 1. Il sistema è intrinsecamente <strong>robusto al rumore</strong>.</p>
+  </div>
+
+  <p>La seconda ragione è la <strong>semplicità costruttiva</strong>. Un componente elettronico con due stati (acceso/spento, conduce/non conduce) è enormemente più semplice da costruire, miniaturizzare e rendere affidabile di uno con dieci stati. I transistor — i mattoncini fondamentali di ogni chip moderno — funzionano esattamente come interruttori: o conducono corrente o non la conducono. Non c'è via di mezzo. Questo ha permesso di arrivare a miliardi di transistor su un singolo chip delle dimensioni di un'unghia.</p>
+
+  <p>La terza ragione è matematica: il sistema binario si presta perfettamente alla <strong>logica booleana</strong> — la matematica del vero e del falso, sviluppata da George Boole nel 1847 — dove le operazioni fondamentali (AND, OR, NOT) corrispondono direttamente a combinazioni di transistor. Ogni calcolo che un computer esegue, dall'addizione alla decodifica di un video, è alla fine una lunga catena di operazioni AND, OR e NOT su bit.</p>
+
+  <div class="box box-sapevi">
+    <div class="box-label">Lo sapevi che — I computer a tre stati</div>
+    <p>Negli anni '50 e '60 furono costruiti alcuni <strong>computer ternari</strong> (a base 3, con stati −1, 0, +1), il più noto dei quali è il <em>Setun</em> sovietico del 1958. Teoricamente più efficienti in termini di informazione per componente, non si affermarono mai perché la complessità costruttiva e la scarsa resistenza agli errori li rendevano poco pratici rispetto ai sistemi binari.</p>
+  </div>
+
+CTYPE html>
 <html lang="it">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6244956152734111"
-     crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Codifica dell'Informazione Digitale — Dispensa Interattiva</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
-/* ═══════════════════════════ TOKENS ═══════════════════════════  */
+/* ═══════════════════════════ TOKENS ═══════════════════════════ */
 :root{
   --bg:#f5f1ea;
   --paper:#fdfaf5;
@@ -26,9 +44,9 @@
   --purple:#5a2d82;  --purple-l:#f0eafa;
   --orange:#b04010;  --orange-l:#fdf0e8;
 
-  --serif:'Playfair Display',serif;
-  --body:'Source Serif 4',serif;
-  --mono:'JetBrains Mono',monospace;
+  --serif:'Playfair Display','Georgia','Times New Roman',serif;
+  --body:'Source Serif 4','Georgia','Times New Roman',serif;
+  --mono:'JetBrains Mono','Consolas','Courier New',monospace;
 
   --sidebar:280px;
   --r-pill:999px;
@@ -574,6 +592,8 @@ canvas{display:block;max-width:100%}
 
   <p>Le tecnologie digitali consentono anche di <strong>comprimere i dati</strong> e quindi di occupare meno <strong>spazio nella memoria</strong> e impiegare un minor <strong>tempo di trasmissione</strong> ad altri dispositivi.</p>
 
+  <p>Un'altra conseguenza fondamentale della codifica binaria universale è che <strong>tutta l'informazione può viaggiare sullo stesso canale</strong>. Poiché voce, immagini, testi e video sono tutti ridotti alla stessa cosa — sequenze di 0 e 1 — non servono più reti separate per ogni tipo di dato. Un unico cavo, un unico segnale radio, una singola connessione a Internet può trasportare contemporaneamente una telefonata, un film in streaming, un messaggio di testo e i dati di un sensore. Questo principio, noto come <strong>convergenza digitale</strong>, è alla base del funzionamento di Internet e di tutti i dispositivi moderni.</p>
+
   <p>Nell'era della <strong>digitalizzazione globale</strong>, quindi, tutto diventa un flusso di bit. Sequenze di 0 e 1 indistinguibili fra loro rappresentano non solo i numeri, ma anche i caratteri che compongono le parole, i pixel che formano le immagini e i video, le onde acustiche che forniscono i suoni e, in generale, qualsiasi tipo di <strong>informazione digitale</strong>. Il computer <em>interpreta</em> le cifre del sistema binario in modi differenti, le elabora e restituisce il risultato di un calcolo matematico, un testo, dei colori, della musica ecc.</p>
 
   <h3>La codifica e la trasmissione dei testi</h3>
@@ -680,7 +700,7 @@ canvas{display:block;max-width:100%}
         <div id="cpSelector">
           <label class="ctrl-label">Code Page (caratteri 128&ndash;255)</label>
           <select id="asciiCP" onchange="buildAsciiTable()" style="font-size:.82rem">
-            <option value="latin1">ISO 8859-1 &mdash; Latino occidentale (Italia, Francia, Spagna&hellip;)</option>
+            <option value="latin1">Windows-1252 / ISO 8859-1 &mdash; Latino occidentale (Italia, Francia, Spagna&hellip;)</option>
             <option value="latin2">ISO 8859-2 &mdash; Europa centrale (Polonia, Ceco, Ungherese&hellip;)</option>
             <option value="cyrillic">ISO 8859-5 &mdash; Cirillico (Russia, Bulgaria&hellip;)</option>
             <option value="greek">ISO 8859-7 &mdash; Greco moderno</option>
@@ -755,10 +775,10 @@ canvas{display:block;max-width:100%}
       <div class="qblock"><div class="qnum">Domanda 2 di 4</div>
         <div class="qtext">Quanti caratteri distinti si possono codificare con 8 bit (1 byte)?</div>
         <div class="qoptions" id="q1o1">
-          <button class="qopt" onclick="answerQ('q1',1,0,false)"><span class="qletter">A</span><span class="qopttext">128 &nbsp;(2&sup7;)</span></button>
-          <button class="qopt" onclick="answerQ('q1',1,1,true)"><span class="qletter">B</span><span class="qopttext">256 &nbsp;(2&sup8;)</span></button>
-          <button class="qopt" onclick="answerQ('q1',1,2,false)"><span class="qletter">C</span><span class="qopttext">512 &nbsp;(2&sup9;)</span></button>
-          <button class="qopt" onclick="answerQ('q1',1,3,false)"><span class="qletter">D</span><span class="qopttext">1024 (2&sup1;&sup0;)</span></button>
+          <button class="qopt" onclick="answerQ('q1',1,0,false)"><span class="qletter">A</span><span class="qopttext">128 &nbsp;(2<sup>7</sup>)</span></button>
+          <button class="qopt" onclick="answerQ('q1',1,1,true)"><span class="qletter">B</span><span class="qopttext">256 &nbsp;(2<sup>8</sup>)</span></button>
+          <button class="qopt" onclick="answerQ('q1',1,2,false)"><span class="qletter">C</span><span class="qopttext">512 &nbsp;(2<sup>9</sup>)</span></button>
+          <button class="qopt" onclick="answerQ('q1',1,3,false)"><span class="qletter">D</span><span class="qopttext">1024 (2<sup>10</sup>)</span></button>
         </div>
         <div class="qfeedback" id="q1f1"></div>
       </div>
@@ -922,10 +942,10 @@ canvas{display:block;max-width:100%}
       <div class="qblock"><div class="qnum">Domanda 2 di 4</div>
         <div class="qtext">Quanti colori distinti si possono rappresentare con il modello RGB a 24 bit (3 byte)?</div>
         <div class="qoptions" id="q2o1">
-          <button class="qopt" onclick="answerQ('q2',1,0,false)"><span class="qletter">A</span><span class="qopttext">65.536 (2&sup1;&sup6;)</span></button>
-          <button class="qopt" onclick="answerQ('q2',1,1,false)"><span class="qletter">B</span><span class="qopttext">1.048.576 (2&sup2;&sup0;)</span></button>
-          <button class="qopt" onclick="answerQ('q2',1,2,true)"><span class="qletter">C</span><span class="qopttext">16.777.216 (2&sup2;&sup4;)</span></button>
-          <button class="qopt" onclick="answerQ('q2',1,3,false)"><span class="qletter">D</span><span class="qopttext">4.294.967.296 (2&sup3;&sup2;)</span></button>
+          <button class="qopt" onclick="answerQ('q2',1,0,false)"><span class="qletter">A</span><span class="qopttext">65.536 (2<sup>16</sup>)</span></button>
+          <button class="qopt" onclick="answerQ('q2',1,1,false)"><span class="qletter">B</span><span class="qopttext">1.048.576 (2<sup>20</sup>)</span></button>
+          <button class="qopt" onclick="answerQ('q2',1,2,true)"><span class="qletter">C</span><span class="qopttext">16.777.216 (2<sup>24</sup>)</span></button>
+          <button class="qopt" onclick="answerQ('q2',1,3,false)"><span class="qletter">D</span><span class="qopttext">4.294.967.296 (2<sup>32</sup>)</span></button>
         </div>
         <div class="qfeedback" id="q2f1"></div>
       </div>
@@ -1281,58 +1301,6 @@ canvas{display:block;max-width:100%}
       <div id="imgFormula" class="annotation" style="margin-top:8px"></div>
     </div>
   </div>
-
-<div class="quiz" id="q3">
-    <div class="quiz-prog"><div class="quiz-prog-fill" id="q3prog" style="width:0%"></div></div>
-    <div class="quiz-header"><div class="qtitle">&#10022; Metti alla prova &mdash; Immagini raster e profondit&agrave;</div><div class="qscore" id="q3score">0 / 4</div></div>
-    <div class="quiz-body">
-      <div class="qblock"><div class="qnum">Domanda 1 di 4</div>
-        <div class="qtext">Un&rsquo;immagine ha risoluzione 1920&times;1080 px e profondit&agrave; 24 bpp. Quanto pesa il file BMP non compresso?</div>
-        <div class="qoptions" id="q3o0">
-          <button class="qopt" onclick="answerQ('q3',0,0,false)"><span class="qletter">A</span><span class="qopttext">~1 MB</span></button>
-          <button class="qopt" onclick="answerQ('q3',0,1,false)"><span class="qletter">B</span><span class="qopttext">~3 MB</span></button>
-          <button class="qopt" onclick="answerQ('q3',0,2,true)"><span class="qletter">C</span><span class="qopttext">~5,93 MB</span></button>
-          <button class="qopt" onclick="answerQ('q3',0,3,false)"><span class="qletter">D</span><span class="qopttext">~50 MB</span></button>
-        </div>
-        <div class="qfeedback" id="q3f0"></div>
-      </div>
-      <div class="qblock"><div class="qnum">Domanda 2 di 4</div>
-        <div class="qtext">La scheda grafica <strong>VGA</strong> (1987) quanti colori poteva visualizzare contemporaneamente, e con quanti bit per pixel?</div>
-        <div class="qoptions" id="q3o1">
-          <button class="qopt" onclick="answerQ('q3',1,0,false)"><span class="qletter">A</span><span class="qopttext">16 colori &mdash; 4 bpp</span></button>
-          <button class="qopt" onclick="answerQ('q3',1,1,false)"><span class="qletter">B</span><span class="qopttext">64 colori &mdash; 6 bpp</span></button>
-          <button class="qopt" onclick="answerQ('q3',1,2,true)"><span class="qletter">C</span><span class="qopttext">256 colori &mdash; 8 bpp</span></button>
-          <button class="qopt" onclick="answerQ('q3',1,3,false)"><span class="qletter">D</span><span class="qopttext">16 milioni di colori &mdash; 24 bpp</span></button>
-        </div>
-        <div class="qfeedback" id="q3f1"></div>
-      </div>
-      <div class="qblock"><div class="qnum">Domanda 3 di 4</div>
-        <div class="qtext">A cosa serve il <strong>canale alfa</strong> nel formato a 32 bpp?</div>
-        <div class="qoptions" id="q3o2">
-          <button class="qopt" onclick="answerQ('q3',2,0,false)"><span class="qletter">A</span><span class="qopttext">Raddoppia il numero di colori disponibili rispetto al 24 bpp</span></button>
-          <button class="qopt" onclick="answerQ('q3',2,1,false)"><span class="qletter">B</span><span class="qopttext">Memorizza informazioni sul copyright dell&rsquo;immagine</span></button>
-          <button class="qopt" onclick="answerQ('q3',2,2,true)"><span class="qletter">C</span><span class="qopttext">Codifica la trasparenza (o opacit&agrave;) di ogni pixel, permettendo composizioni</span></button>
-          <button class="qopt" onclick="answerQ('q3',2,3,false)"><span class="qletter">D</span><span class="qopttext">Indica la posizione GPS in cui &egrave; stata scattata la foto</span></button>
-        </div>
-        <div class="qfeedback" id="q3f2"></div>
-      </div>
-      <div class="qblock"><div class="qnum">Domanda 4 di 4</div>
-        <div class="qtext">Qual &egrave; il <strong>DPI minimo standard</strong> per la stampa professionale di un&rsquo;immagine?</div>
-        <div class="qoptions" id="q3o3">
-          <button class="qopt" onclick="answerQ('q3',3,0,false)"><span class="qletter">A</span><span class="qopttext">72 dpi</span></button>
-          <button class="qopt" onclick="answerQ('q3',3,1,false)"><span class="qletter">B</span><span class="qopttext">96 dpi</span></button>
-          <button class="qopt" onclick="answerQ('q3',3,2,false)"><span class="qletter">C</span><span class="qopttext">150 dpi</span></button>
-          <button class="qopt" onclick="answerQ('q3',3,3,true)"><span class="qletter">D</span><span class="qopttext">300 dpi</span></button>
-        </div>
-        <div class="qfeedback" id="q3f3"></div>
-      </div>
-    </div>
-    <div class="quiz-footer">
-      <div class="quiz-result" id="q3result">Clicca un&rsquo;opzione per rispondere.</div>
-      <button class="btn btn-outline" onclick="resetQuiz('q3',4)" style="font-size:.8rem;padding:6px 14px">&circlearrowleft; Ricomincia</button>
-    </div>
-  </div>
-</section>
 </section>
 
 <!-- ════ SEZIONE 2f: RISOLUZIONE E DPI ════ -->
@@ -1538,6 +1506,57 @@ canvas{display:block;max-width:100%}
       <div id="dpiVizInfo" class="annotation" style="margin-top:10px;line-height:1.7"></div>
     </div>
   </div>
+<div class="quiz" id="q3">
+    <div class="quiz-prog"><div class="quiz-prog-fill" id="q3prog" style="width:0%"></div></div>
+    <div class="quiz-header"><div class="qtitle">&#10022; Metti alla prova &mdash; Immagini raster e profondit&agrave;</div><div class="qscore" id="q3score">0 / 4</div></div>
+    <div class="quiz-body">
+      <div class="qblock"><div class="qnum">Domanda 1 di 4</div>
+        <div class="qtext">Un&rsquo;immagine ha risoluzione 1920&times;1080 px e profondit&agrave; 24 bpp. Quanto pesa il file BMP non compresso?</div>
+        <div class="qoptions" id="q3o0">
+          <button class="qopt" onclick="answerQ('q3',0,0,false)"><span class="qletter">A</span><span class="qopttext">~1 MB</span></button>
+          <button class="qopt" onclick="answerQ('q3',0,1,false)"><span class="qletter">B</span><span class="qopttext">~3 MB</span></button>
+          <button class="qopt" onclick="answerQ('q3',0,2,true)"><span class="qletter">C</span><span class="qopttext">~5,93 MB</span></button>
+          <button class="qopt" onclick="answerQ('q3',0,3,false)"><span class="qletter">D</span><span class="qopttext">~50 MB</span></button>
+        </div>
+        <div class="qfeedback" id="q3f0"></div>
+      </div>
+      <div class="qblock"><div class="qnum">Domanda 2 di 4</div>
+        <div class="qtext">La scheda grafica <strong>VGA</strong> (1987) quanti colori poteva visualizzare contemporaneamente, e con quanti bit per pixel?</div>
+        <div class="qoptions" id="q3o1">
+          <button class="qopt" onclick="answerQ('q3',1,0,false)"><span class="qletter">A</span><span class="qopttext">16 colori &mdash; 4 bpp</span></button>
+          <button class="qopt" onclick="answerQ('q3',1,1,false)"><span class="qletter">B</span><span class="qopttext">64 colori &mdash; 6 bpp</span></button>
+          <button class="qopt" onclick="answerQ('q3',1,2,true)"><span class="qletter">C</span><span class="qopttext">256 colori &mdash; 8 bpp</span></button>
+          <button class="qopt" onclick="answerQ('q3',1,3,false)"><span class="qletter">D</span><span class="qopttext">16 milioni di colori &mdash; 24 bpp</span></button>
+        </div>
+        <div class="qfeedback" id="q3f1"></div>
+      </div>
+      <div class="qblock"><div class="qnum">Domanda 3 di 4</div>
+        <div class="qtext">A cosa serve il <strong>canale alfa</strong> nel formato a 32 bpp?</div>
+        <div class="qoptions" id="q3o2">
+          <button class="qopt" onclick="answerQ('q3',2,0,false)"><span class="qletter">A</span><span class="qopttext">Raddoppia il numero di colori disponibili rispetto al 24 bpp</span></button>
+          <button class="qopt" onclick="answerQ('q3',2,1,false)"><span class="qletter">B</span><span class="qopttext">Memorizza informazioni sul copyright dell&rsquo;immagine</span></button>
+          <button class="qopt" onclick="answerQ('q3',2,2,true)"><span class="qletter">C</span><span class="qopttext">Codifica la trasparenza (o opacit&agrave;) di ogni pixel, permettendo composizioni</span></button>
+          <button class="qopt" onclick="answerQ('q3',2,3,false)"><span class="qletter">D</span><span class="qopttext">Indica la posizione GPS in cui &egrave; stata scattata la foto</span></button>
+        </div>
+        <div class="qfeedback" id="q3f2"></div>
+      </div>
+      <div class="qblock"><div class="qnum">Domanda 4 di 4</div>
+        <div class="qtext">Qual &egrave; il <strong>DPI minimo standard</strong> per la stampa professionale di un&rsquo;immagine?</div>
+        <div class="qoptions" id="q3o3">
+          <button class="qopt" onclick="answerQ('q3',3,0,false)"><span class="qletter">A</span><span class="qopttext">72 dpi</span></button>
+          <button class="qopt" onclick="answerQ('q3',3,1,false)"><span class="qletter">B</span><span class="qopttext">96 dpi</span></button>
+          <button class="qopt" onclick="answerQ('q3',3,2,false)"><span class="qletter">C</span><span class="qopttext">150 dpi</span></button>
+          <button class="qopt" onclick="answerQ('q3',3,3,true)"><span class="qletter">D</span><span class="qopttext">300 dpi</span></button>
+        </div>
+        <div class="qfeedback" id="q3f3"></div>
+      </div>
+    </div>
+    <div class="quiz-footer">
+      <div class="quiz-result" id="q3result">Clicca un&rsquo;opzione per rispondere.</div>
+      <button class="btn btn-outline" onclick="resetQuiz('q3',4)" style="font-size:.8rem;padding:6px 14px">&circlearrowleft; Ricomincia</button>
+    </div>
+  </div>
+
 
 </section>
 
@@ -2495,7 +2514,23 @@ doMorse();
 // ═══════════════════════════════════════
 // ── CODE PAGE DATA (chars 128-255) ──────────────────────────────────────────
 const CP = {
-  latin1: Array.from({length:128},(_,i)=>128+i),
+  // Windows-1252 (CP1252) — di fatto lo standard "Latin-1 esteso" usato su Windows.
+  // I byte 0x80-0x9F in ISO 8859-1 puro sarebbero controlli C1 senza glifo;
+  // CP1252 li rimappa a caratteri tipografici utili (€, œ, Ž, …) ed è quello
+  // che i browser mostrano per default su pagine Latin-1.
+  latin1: [
+    0x20AC,0x0081,0x201A,0x0192,0x201E,0x2026,0x2020,0x2021, // 128-135
+    0x02C6,0x2030,0x0160,0x2039,0x0152,0x008D,0x017D,0x008F, // 136-143
+    0x0090,0x2018,0x2019,0x201C,0x201D,0x2022,0x2013,0x2014, // 144-151
+    0x02DC,0x2122,0x0161,0x203A,0x0153,0x009D,0x017E,0x0178, // 152-159
+    // 160-255: identici a Unicode (stessi codepoint di ISO 8859-1)
+    0xA0,0xA1,0xA2,0xA3,0xA4,0xA5,0xA6,0xA7,0xA8,0xA9,0xAA,0xAB,0xAC,0xAD,0xAE,0xAF,
+    0xB0,0xB1,0xB2,0xB3,0xB4,0xB5,0xB6,0xB7,0xB8,0xB9,0xBA,0xBB,0xBC,0xBD,0xBE,0xBF,
+    0xC0,0xC1,0xC2,0xC3,0xC4,0xC5,0xC6,0xC7,0xC8,0xC9,0xCA,0xCB,0xCC,0xCD,0xCE,0xCF,
+    0xD0,0xD1,0xD2,0xD3,0xD4,0xD5,0xD6,0xD7,0xD8,0xD9,0xDA,0xDB,0xDC,0xDD,0xDE,0xDF,
+    0xE0,0xE1,0xE2,0xE3,0xE4,0xE5,0xE6,0xE7,0xE8,0xE9,0xEA,0xEB,0xEC,0xED,0xEE,0xEF,
+    0xF0,0xF1,0xF2,0xF3,0xF4,0xF5,0xF6,0xF7,0xF8,0xF9,0xFA,0xFB,0xFC,0xFD,0xFE,0xFF
+  ],
   latin2: [
     0x80,0x81,0x82,0x83,0x84,0x85,0x86,0x87,0x88,0x89,0x8A,0x8B,0x8C,0x8D,0x8E,0x8F,
     0x90,0x91,0x92,0x93,0x94,0x95,0x96,0x97,0x98,0x99,0x9A,0x9B,0x9C,0x9D,0x9E,0x9F,
