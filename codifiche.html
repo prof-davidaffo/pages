@@ -1,24 +1,3 @@
-<!DO
-  <h3>Perché proprio il bit — il sistema binario</h3>
-  <p>La scelta di usare il <strong>bit</strong> come unità elementare dell'informazione non è casuale: è il frutto di ragioni fisiche, logiche e pratiche che lo rendono superiore a qualsiasi altra alternativa.</p>
-
-  <p>Un bit corrisponde a due soli stati possibili: <strong>0</strong> e <strong>1</strong>. Nella realtà fisica questi stati si traducono in <em>tensione alta o bassa</em> in un circuito elettronico, <em>magnetizzato o non magnetizzato</em> in un disco, <em>riflette o non riflette</em> in un CD. Il fatto che esistano solo <strong>due stati ben distinti</strong> porta a un vantaggio enorme: la <strong>resistenza agli errori</strong>.</p>
-
-  <div class="box box-esempio">
-    <div class="box-label">Esempio — Perché due stati sono meglio di dieci</div>
-    <p>Immagina di trasmettere un segnale su un cavo. Con il sistema decimale, dovresti distinguere 10 livelli di tensione diversi (0V, 1V, 2V… 9V). Un minimo disturbo elettrico — il motore di un frigorifero nelle vicinanze, un'interferenza radio — può spostare il segnale da 3V a 3,2V e il ricevitore non capisce più se era un 3 o un 4. Con il sistema binario, invece, basta distinguere solo due stati: "basso" (sotto 2,5V) e "alto" (sopra 2,5V). Un disturbo deve essere enorme per far sembrare uno 0 un 1. Il sistema è intrinsecamente <strong>robusto al rumore</strong>.</p>
-  </div>
-
-  <p>La seconda ragione è la <strong>semplicità costruttiva</strong>. Un componente elettronico con due stati (acceso/spento, conduce/non conduce) è enormemente più semplice da costruire, miniaturizzare e rendere affidabile di uno con dieci stati. I transistor — i mattoncini fondamentali di ogni chip moderno — funzionano esattamente come interruttori: o conducono corrente o non la conducono. Non c'è via di mezzo. Questo ha permesso di arrivare a miliardi di transistor su un singolo chip delle dimensioni di un'unghia.</p>
-
-  <p>La terza ragione è matematica: il sistema binario si presta perfettamente alla <strong>logica booleana</strong> — la matematica del vero e del falso, sviluppata da George Boole nel 1847 — dove le operazioni fondamentali (AND, OR, NOT) corrispondono direttamente a combinazioni di transistor. Ogni calcolo che un computer esegue, dall'addizione alla decodifica di un video, è alla fine una lunga catena di operazioni AND, OR e NOT su bit.</p>
-
-  <div class="box box-sapevi">
-    <div class="box-label">Lo sapevi che — I computer a tre stati</div>
-    <p>Negli anni '50 e '60 furono costruiti alcuni <strong>computer ternari</strong> (a base 3, con stati −1, 0, +1), il più noto dei quali è il <em>Setun</em> sovietico del 1958. Teoricamente più efficienti in termini di informazione per componente, non si affermarono mai perché la complessità costruttiva e la scarsa resistenza agli errori li rendevano poco pratici rispetto ai sistemi binari.</p>
-  </div>
-
-CTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
@@ -88,12 +67,14 @@ nav{padding:8px 0 40px;flex:1}
 .nav-item .num{font-family:var(--mono);font-size:.58rem;opacity:.3;min-width:18px;flex-shrink:0}
 
 /* ═══════════════════════════ LAYOUT ═══════════════════════════ */
-.content{margin-left:var(--sidebar);padding:64px 64px 120px}
-.content-inner{max-width:800px;margin:0 auto}
-
-/* ═══════════════════════════ SECTIONS ═══════════════════════════ */
-.section{margin-bottom:80px;scroll-margin-top:30px}
-.section-divider{border:none;border-top:1px solid var(--border);margin:72px 0}
+.content{
+  margin-left:var(--sidebar);
+  padding:64px 64px 120px;
+  box-sizing:border-box;
+}
+.section{max-width:720px;margin-bottom:80px;scroll-margin-top:60px}
+#intro{scroll-margin-top:40px}
+.section-divider{border:none;border-top:1px solid var(--border);margin:72px 0;max-width:720px}
 
 /* ═══════════════════════════ TYPOGRAPHY ═══════════════════════════ */
 .ch-eyebrow{font-family:var(--mono);font-size:.62rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:flex;align-items:center;gap:8px}
@@ -277,10 +258,10 @@ canvas{display:block;max-width:100%}
 .annotation .hl{color:var(--ink);font-weight:500}
 
 @media(max-width:900px){
-  .content{padding:40px 28px 80px}
+  .content{padding:40px 32px 80px}
 }
 @media(min-width:1400px){
-  .content{padding:64px 80px 120px}
+  .content{padding:64px 96px 120px}
 }
 
 /* ═══ YEAR BADGE ═══ */
@@ -336,55 +317,12 @@ canvas{display:block;max-width:100%}
 
 <div id="prog"><div id="prog-fill"></div></div>
 
-<!-- ═══════════════════ SIDEBAR ═══════════════════ -->
-<aside class="sidebar">
-  <div class="sidebar-brand">
-    <div class="brand-title">Codifica dell'Informazione Digitale</div>
-    <div class="brand-sub">Dispensa interattiva</div>
-  </div>
-  <nav>
-    <div class="nav-group-title">Introduzione</div>
-    <a class="nav-item active" href="#s0"><span class="num">0</span>Segnali analogici e digitali</a>
-    <a class="nav-item" href="#s0b"><span class="num">—</span>Bit e Byte</a>
-    <div class="nav-group-title">Cap. 1 — Testi</div>
-    <a class="nav-item" href="#s1"><span class="num">1</span>La rivoluzione informatica</a>
-    <a class="nav-item" href="#s1b"><span class="num">—</span>Codice Morse</a>
-    <a class="nav-item" href="#s1c"><span class="num">—</span>Codice Baudot</a>
-    <a class="nav-item" href="#s1d"><span class="num">—</span>ASCII (7 e 8 bit)</a>
-    <a class="nav-item" href="#s1e"><span class="num">—</span>Codifiche UTF</a>
-    <div class="nav-group-title">Cap. 2 — Colori e immagini</div>
-    <a class="nav-item" href="#s2"><span class="num">2</span>Luce e colore</a>
-    <a class="nav-item" href="#s2b"><span class="num">—</span>Modello RGB</a>
-    <a class="nav-item" href="#s2c"><span class="num">—</span>Modello CMYK</a>
-    <a class="nav-item" href="#s2d"><span class="num">—</span>Codifica raster</a>
-    <a class="nav-item" href="#s2e"><span class="num">—</span>Profondità di colore</a>
-    <a class="nav-item" href="#s2e1"><span class="num">—</span>Grafica monocromatica</a>
-    <a class="nav-item" href="#s2e1b"><span class="num">—</span>Grafica 4 bpp (16 colori)</a>
-    <a class="nav-item" href="#s2e2"><span class="num">—</span>Grafica indicizzata</a>
-    <a class="nav-item" href="#s2e3"><span class="num">—</span>Truecolor (24 bpp)</a>
-    <a class="nav-item" href="#s2e4"><span class="num">—</span>Canale alfa (32 bpp)</a>
-    <a class="nav-item" href="#s2f"><span class="num">—</span>Risoluzione e DPI</a>
-    <a class="nav-item" href="#s2g"><span class="num">—</span>Codifica vettoriale</a>
-    <div class="nav-group-title">Cap. 3 — Compressione</div>
-    <a class="nav-item" href="#s3"><span class="num">3</span>Algoritmi e rapporti</a>
-    <a class="nav-item" href="#s3b"><span class="num">—</span>RLE</a>
-    <a class="nav-item" href="#s3c"><span class="num">—</span>Huffman e LZW</a>
-    <a class="nav-item" href="#s3d"><span class="num">—</span>Compressione lossy</a>
-    <a class="nav-item" href="#s3e"><span class="num">—</span>Formati standard</a>
-    <div class="nav-group-title">Cap. 4 — Multimedia</div>
-    <a class="nav-item" href="#s4"><span class="num">4</span>Codifica video</a>
-    <a class="nav-item" href="#s4b"><span class="num">—</span>Codifica audio</a>
-    <a class="nav-item" href="#s4c"><span class="num">—</span>Lo standard MIDI</a>
-  </nav>
-</aside>
-
 <!-- ═══════════════════ CONTENT ═══════════════════ -->
 <main class="content">
-<div class="content-inner">
 <!-- ════════════════════════════════════════════════
      SEZIONE 0: SEGNALI
 ════════════════════════════════════════════════ -->
-<section class="section" id="intro">
+<section class="section" id="intro" style="padding-top:8px">
   <div class="ch-eyebrow">Presentazione</div>
   <h2>Come usare questa dispensa</h2>
 
@@ -419,6 +357,25 @@ canvas{display:block;max-width:100%}
   </div>
 
   <p style="margin-top:20px">I <strong>widget interattivi</strong> (riquadri con la barra scura in cima) sono simulatori con cui puoi sperimentare direttamente: spostare cursori, cliccare, modificare valori e osservare cosa cambia. I <strong>quiz</strong> (riquadri viola) permettono di verificare la comprensione: ogni risposta sbagliata mostra immediatamente la spiegazione corretta.</p>
+
+  <h3>Perché proprio il bit — il sistema binario</h3>
+  <p>La scelta di usare il <strong>bit</strong> come unità elementare dell'informazione non è casuale: è il frutto di ragioni fisiche, logiche e pratiche che lo rendono superiore a qualsiasi altra alternativa.</p>
+
+  <p>Un bit corrisponde a due soli stati possibili: <strong>0</strong> e <strong>1</strong>. Nella realtà fisica questi stati si traducono in <em>tensione alta o bassa</em> in un circuito elettronico, <em>magnetizzato o non magnetizzato</em> in un disco, <em>riflette o non riflette</em> in un CD. Il fatto che esistano solo <strong>due stati ben distinti</strong> porta a un vantaggio enorme: la <strong>resistenza agli errori</strong>.</p>
+
+  <div class="box box-esempio">
+    <div class="box-label">Esempio — Perché due stati sono meglio di dieci</div>
+    <p>Immagina di trasmettere un segnale su un cavo. Con il sistema decimale, dovresti distinguere 10 livelli di tensione diversi (0V, 1V, 2V… 9V). Un minimo disturbo elettrico — il motore di un frigorifero nelle vicinanze, un'interferenza radio — può spostare il segnale da 3V a 3,2V e il ricevitore non capisce più se era un 3 o un 4. Con il sistema binario, invece, basta distinguere solo due stati: "basso" (sotto 2,5V) e "alto" (sopra 2,5V). Un disturbo deve essere enorme per far sembrare uno 0 un 1. Il sistema è intrinsecamente <strong>robusto al rumore</strong>.</p>
+  </div>
+
+  <p>La seconda ragione è la <strong>semplicità costruttiva</strong>. Un componente elettronico con due stati (acceso/spento, conduce/non conduce) è enormemente più semplice da costruire, miniaturizzare e rendere affidabile di uno con dieci stati. I transistor — i mattoncini fondamentali di ogni chip moderno — funzionano esattamente come interruttori: o conducono corrente o non la conducono. Non c'è via di mezzo. Questo ha permesso di arrivare a miliardi di transistor su un singolo chip delle dimensioni di un'unghia.</p>
+
+  <p>La terza ragione è matematica: il sistema binario si presta perfettamente alla <strong>logica booleana</strong> — la matematica del vero e del falso, sviluppata da George Boole nel 1847 — dove le operazioni fondamentali (AND, OR, NOT) corrispondono direttamente a combinazioni di transistor. Ogni calcolo che un computer esegue, dall'addizione alla decodifica di un video, è alla fine una lunga catena di operazioni AND, OR e NOT su bit.</p>
+
+  <div class="box box-sapevi">
+    <div class="box-label">Lo sapevi che — I computer a tre stati</div>
+    <p>Negli anni '50 e '60 furono costruiti alcuni <strong>computer ternari</strong> (a base 3, con stati −1, 0, +1), il più noto dei quali è il <em>Setun</em> sovietico del 1958. Teoricamente più efficienti in termini di informazione per componente, non si affermarono mai perché la complessità costruttiva e la scarsa resistenza agli errori li rendevano poco pratici rispetto ai sistemi binari.</p>
+  </div>
 
 </section>
 
@@ -2100,6 +2057,36 @@ canvas{display:block;max-width:100%}
 
   <p>La compressione con perdita viene sviluppata sulla base della <strong>psicoacustica</strong> (scienza che studia come i suoni vengono percepiti, soggettivamente, dagli esseri umani). In particolare l'algoritmo <strong>elimina</strong> (o approssima) solo alcune <strong>frequenze</strong> (o suoni), come per esempio quelle sopra una certa soglia, che l'orecchio umano tende a non percepire, facendo in modo che la riduzione di qualità non risulti fastidiosa.</p>
 
+  <h3>La psicoacustica e come funziona MP3</h3>
+  <p>L'<strong>MP3</strong> è il formato audio compresso più diffuso della storia. Il suo nome completo è <em>MPEG-1 Audio Layer III</em> e fu sviluppato dal Fraunhofer Institute negli anni '80 e '90. La sua compressione si basa interamente sulla <strong>psicoacustica</strong> — lo studio scientifico di come l'orecchio umano percepisce i suoni — per eliminare tutto ciò che l'ascoltatore non sentirà comunque.</p>
+
+  <p>L'orecchio umano non è uno strumento di misura preciso: ha limiti ben definiti che MP3 sfrutta sistematicamente.</p>
+
+  <div class="box box-attenzione">
+    <div class="box-label">I principi psicoacustici alla base di MP3</div>
+    <p><strong>1. Soglia di udibilità assoluta.</strong> L'orecchio non sente tutte le frequenze allo stesso modo. È più sensibile tra 2.000 e 5.000 Hz (le frequenze della voce umana) e meno sensibile alle frequenze molto basse (&lt;20 Hz) e molto alte (&gt;16.000 Hz). MP3 può ridurre drasticamente le informazioni alle frequenze estreme senza che l'ascoltatore se ne accorga.</p>
+    <p><strong>2. Mascheramento in frequenza.</strong> Quando un suono forte è presente a una certa frequenza, i suoni più deboli a frequenze vicine diventano inudibili — vengono "mascherati". Per esempio, se c'è un do fortissimo, un re leggermente più debole suonato contemporaneamente non sarà percepito. MP3 individua questi suoni mascherati e li elimina del tutto.</p>
+    <p><strong>3. Mascheramento temporale.</strong> Dopo un suono molto forte, l'orecchio impiega qualche millisecondo a "riprendersi" e non percepisce i suoni deboli immediatamente successivi (mascheramento post-stimolo). Lo stesso vale per i circa 20 ms precedenti un suono forte (mascheramento pre-stimolo). MP3 sfrutta questa finestra temporale per eliminare informazioni.</p>
+    <p><strong>4. Effetto stereofonia.</strong> Il cervello localizza i suoni confrontando l'arrivo del suono nelle due orecchie. MP3 usa la <em>joint stereo</em>: invece di codificare i due canali separatamente, codifica la somma (mono) ad alta qualità e solo la differenza tra i due canali, che contiene poche informazioni, risparmiando spazio.</p>
+  </div>
+
+  <h3>Come funziona concretamente la compressione MP3</h3>
+  <p>L'encoder MP3 lavora in questo modo su ogni frazione di secondo di audio:</p>
+  <p><strong>1. Analisi in frequenza (FFT).</strong> Il segnale audio viene suddiviso in piccoli blocchi di ~26 ms e per ognuno si calcola quali frequenze sono presenti e con quale intensità, usando la <em>Trasformata di Fourier</em>. Il risultato è uno "spettro" del suono in quel momento.</p>
+  <p><strong>2. Modello psicoacustico.</strong> Per ogni blocco, l'encoder calcola quali frequenze sono udibili in quel momento specifico — tenendo conto della soglia assoluta, del mascheramento in frequenza e del mascheramento temporale. Tutto ciò che cade sotto la soglia di udibilità calcolata viene marcato come eliminabile.</p>
+  <p><strong>3. Quantizzazione adattiva.</strong> Le frequenze udibili vengono codificate con più bit (alta precisione), quelle poco udibili con meno bit, quelle inudibili non vengono codificate affatto. Questo processo si chiama <em>allocazione dinamica dei bit</em>.</p>
+  <p><strong>4. Codifica di Huffman.</strong> Il risultato viene ulteriormente compresso con un algoritmo lossless (Huffman), eliminando ridondanze statistiche senza perdere ulteriore qualità.</p>
+
+  <div class="box box-esempio">
+    <div class="box-label">Esempio — Quanto si risparmia con MP3</div>
+    <p>Un minuto di audio CD (WAV stereo 44,1 kHz 16 bit) pesa circa <strong>10 MB</strong>. Lo stesso minuto in MP3 a 128 kbps pesa circa <strong>0,96 MB</strong> — una riduzione di circa 10:1. A 320 kbps (massima qualità MP3) pesa ~2,4 MB — riduzione 4:1 con qualità praticamente indistinguibile dall'originale per la maggior parte degli ascoltatori.</p>
+  </div>
+
+  <div class="box box-sapevi">
+    <div class="box-label">Lo sapevi che — La guerra dei formati audio</div>
+    <p>MP3 fu reso pubblico nel 1993 e divenne il formato dominante negli anni '90 e 2000, alimentando la diffusione dei lettori portatili (iPod, Walkman digitali) e lo scambio di file su internet. Oggi è tecnicamente superato dall'<strong>AAC</strong> (usato da Apple Music e YouTube) e dall'<strong>Opus</strong> (usato da Spotify e WhatsApp per le note vocali), che a parità di bitrate offrono qualità superiore grazie a modelli psicoacustici più raffinati. Gli ultimi brevetti MP3 sono scaduti nel 2017, rendendo il formato completamente libero.</p>
+  </div>
+
   <h3>Da analogico a digitale: campionamento e quantizzazione</h3>
   <p>Per rendere digitale un audio, che è un <strong>segnale analogico</strong>, occorre prima <strong>campionarlo</strong>, cioè scegliere un "ritmo temporale" a cui prelevare i campioni (frequenza di campionamento) e individuare il valore delle ampiezze del segnale in corrispondenza di ogni istante di tempo t<sub>i</sub>. Successivamente occorre <strong>quantizzarlo</strong>, cioè arrotondare l'ampiezza analogica ottenuta al valore digitale che meglio la approssima.</p>
 
@@ -2253,8 +2240,50 @@ canvas{display:block;max-width:100%}
   </div>
 </section>
 
-</div>
 </main>
+
+<!-- ═══════════════════ SIDEBAR ═══════════════════ -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-title">Codifica dell'Informazione Digitale</div>
+    <div class="brand-sub">Dispensa interattiva</div>
+  </div>
+  <nav>
+    <a class="nav-item" href="#intro" style="border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:4px;padding-bottom:10px"><span class="num">✦</span>Presentazione</a>
+    <div class="nav-group-title">Introduzione</div>
+    <a class="nav-item active" href="#s0"><span class="num">0</span>Segnali analogici e digitali</a>
+    <a class="nav-item" href="#s0b"><span class="num">—</span>Bit e Byte</a>
+    <div class="nav-group-title">Cap. 1 — Testi</div>
+    <a class="nav-item" href="#s1"><span class="num">1</span>La rivoluzione informatica</a>
+    <a class="nav-item" href="#s1b"><span class="num">—</span>Codice Morse</a>
+    <a class="nav-item" href="#s1c"><span class="num">—</span>Codice Baudot</a>
+    <a class="nav-item" href="#s1d"><span class="num">—</span>ASCII (7 e 8 bit)</a>
+    <a class="nav-item" href="#s1e"><span class="num">—</span>Codifiche UTF</a>
+    <div class="nav-group-title">Cap. 2 — Colori e immagini</div>
+    <a class="nav-item" href="#s2"><span class="num">2</span>Luce e colore</a>
+    <a class="nav-item" href="#s2b"><span class="num">—</span>Modello RGB</a>
+    <a class="nav-item" href="#s2c"><span class="num">—</span>Modello CMYK</a>
+    <a class="nav-item" href="#s2d"><span class="num">—</span>Codifica raster</a>
+    <a class="nav-item" href="#s2e"><span class="num">—</span>Profondità di colore</a>
+    <a class="nav-item" href="#s2e1"><span class="num">—</span>Grafica monocromatica</a>
+    <a class="nav-item" href="#s2e1b"><span class="num">—</span>Grafica 4 bpp (16 colori)</a>
+    <a class="nav-item" href="#s2e2"><span class="num">—</span>Grafica indicizzata</a>
+    <a class="nav-item" href="#s2e3"><span class="num">—</span>Truecolor (24 bpp)</a>
+    <a class="nav-item" href="#s2e4"><span class="num">—</span>Canale alfa (32 bpp)</a>
+    <a class="nav-item" href="#s2f"><span class="num">—</span>Risoluzione e DPI</a>
+    <a class="nav-item" href="#s2g"><span class="num">—</span>Codifica vettoriale</a>
+    <div class="nav-group-title">Cap. 3 — Compressione</div>
+    <a class="nav-item" href="#s3"><span class="num">3</span>Algoritmi e rapporti</a>
+    <a class="nav-item" href="#s3b"><span class="num">—</span>RLE</a>
+    <a class="nav-item" href="#s3c"><span class="num">—</span>Huffman e LZW</a>
+    <a class="nav-item" href="#s3d"><span class="num">—</span>Compressione lossy</a>
+    <a class="nav-item" href="#s3e"><span class="num">—</span>Formati standard</a>
+    <div class="nav-group-title">Cap. 4 — Multimedia</div>
+    <a class="nav-item" href="#s4"><span class="num">4</span>Codifica video</a>
+    <a class="nav-item" href="#s4b"><span class="num">—</span>Codifica audio</a>
+    <a class="nav-item" href="#s4c"><span class="num">—</span>Lo standard MIDI</a>
+  </nav>
+</aside>
 
 <script>
 // ═══════════════════════════════════════
