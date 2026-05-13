@@ -2214,6 +2214,32 @@ void loop() {
       navList: document.getElementById("navList")
     };
 
+    function distributeMultipleChoiceAnswers() {
+      const desiredAnswerPositions = [1, 3, 0, 2];
+      const focusCounters = {};
+
+      questionBank.forEach(q => {
+        if (q.type !== "mcq" || !Array.isArray(q.options) || q.options.length < 2) {
+          return;
+        }
+
+        const counter = focusCounters[q.focus] || 0;
+        focusCounters[q.focus] = counter + 1;
+
+        const targetIndex = desiredAnswerPositions[counter % desiredAnswerPositions.length] % q.options.length;
+        const currentIndex = q.answer;
+
+        if (!Number.isInteger(currentIndex) || currentIndex < 0 || currentIndex >= q.options.length || currentIndex === targetIndex) {
+          return;
+        }
+
+        const correctOption = q.options[currentIndex];
+        q.options[currentIndex] = q.options[targetIndex];
+        q.options[targetIndex] = correctOption;
+        q.answer = targetIndex;
+      });
+    }
+
     function groupedQuestions() {
       return Object.keys(labels).map(focusKey => ({
         focus: focusKey,
@@ -2571,6 +2597,7 @@ void loop() {
       });
     }
 
+    distributeMultipleChoiceAnswers();
     renderNav();
     renderAllQuestions();
     attachInstantCorrection();
