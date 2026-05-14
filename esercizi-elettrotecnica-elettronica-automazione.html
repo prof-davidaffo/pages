@@ -515,6 +515,11 @@
       stroke-linecap: round;
     }
 
+    .resource-blade.active-wire {
+      stroke: #d7a11e;
+      filter: drop-shadow(0 0 5px rgba(215, 161, 30, 0.85));
+    }
+
     .resource-label {
       fill: #1f2430;
       font-size: 18px;
@@ -670,7 +675,7 @@
       <div class="cards-grid">
         <a class="resource-card" href="#comandi">
           <h2>Comandi luce</h2>
-          <p class="muted">Laboratorio interattivo su interruttore, deviatori e invertitore.</p>
+          <p class="muted">Laboratorio interattivo su interruttori, pulsanti, deviatori, invertitore e relè passo-passo.</p>
         </a>
         <a class="resource-card" href="#esercizi">
           <h2>Esercizi</h2>
@@ -685,8 +690,11 @@
         <p class="muted">Seleziona un caso e aziona i comandi sotto lo schema.</p>
         <div class="resource-tabs" role="tablist" aria-label="Comandi luce">
           <button class="resource-tab" type="button" role="tab" aria-selected="true" data-resource-target="resource-single">Interruttore</button>
+          <button class="resource-tab" type="button" role="tab" aria-selected="false" data-resource-target="resource-pushbutton">Pulsante</button>
+          <button class="resource-tab" type="button" role="tab" aria-selected="false" data-resource-target="resource-bipolar">Bipolare</button>
           <button class="resource-tab" type="button" role="tab" aria-selected="false" data-resource-target="resource-deviator">Deviatori</button>
           <button class="resource-tab" type="button" role="tab" aria-selected="false" data-resource-target="resource-inverter">Invertitore</button>
+          <button class="resource-tab" type="button" role="tab" aria-selected="false" data-resource-target="resource-steprelay">Relè passo-passo</button>
         </div>
 
         <section class="resource-example active" id="resource-single">
@@ -702,6 +710,39 @@
             <div class="resource-legend"><span class="resource-key"><span class="resource-swatch phase"></span>Fase</span><span class="resource-key"><span class="resource-swatch active"></span>Percorso attivo</span><span class="resource-key"><span class="resource-swatch neutral"></span>Neutro</span><span class="resource-key"><span class="resource-swatch earth"></span>Terra</span></div>
           </div>
           <aside class="resource-side"><h3>Interruttore unipolare</h3><p class="resource-status resource-single-status"><span class="resource-dot"></span><span>Lampada spenta</span></p><ul class="notes"><li>La fase entra nell'interruttore.</li><li>Il neutro va direttamente alla lampada.</li><li>Il PE serve solo alla protezione.</li></ul></aside>
+        </section>
+
+        <section class="resource-example" id="resource-pushbutton">
+          <div class="resource-stage">
+            <svg class="resource-svg" viewBox="0 0 900 430" aria-label="Pulsante monostabile">
+              <text x="35" y="42" class="resource-label">Comando momentaneo</text>
+              <text x="65" y="115" class="resource-label">L</text><text x="65" y="285" class="resource-label">N</text><text x="65" y="350" class="resource-label">PE</text>
+              <path class="resource-wire neutral" d="M95 280 H760"></path><path class="resource-wire earth" d="M95 345 H760"></path><path class="resource-wire phase resource-push-source" d="M95 110 H300"></path><path class="resource-wire resource-push-switched" d="M475 110 H710"></path>
+              <rect class="resource-component" x="300" y="70" width="175" height="95" rx="8"></rect><circle class="resource-terminal" cx="330" cy="110" r="12"></circle><circle class="resource-terminal" cx="445" cy="110" r="12"></circle><line class="resource-blade resource-push-blade" x1="330" y1="110" x2="430" y2="78"></line><path class="resource-blade" d="M365 58 v-25 h45 v25"></path><text x="326" y="190" class="resource-small">pulsante</text>
+              <circle class="resource-lamp resource-push-lamp" cx="765" cy="150" r="48"></circle><path class="resource-wire resource-push-feed" d="M710 110 Q760 110 760 105"></path><path class="resource-wire neutral" d="M760 280 V198"></path><path class="resource-wire earth" d="M805 345 V205"></path><text x="725" y="230" class="resource-small">lampada</text>
+            </svg>
+            <div class="component-controls one"><button class="resource-btn" type="button" data-resource-press="pushbutton">Tieni premuto</button></div>
+            <div class="resource-legend"><span class="resource-key"><span class="resource-swatch phase"></span>Fase</span><span class="resource-key"><span class="resource-swatch active"></span>Percorso attivo</span><span class="resource-key"><span class="resource-swatch neutral"></span>Neutro</span><span class="resource-key"><span class="resource-swatch earth"></span>Terra</span></div>
+          </div>
+          <aside class="resource-side"><h3>Pulsante monostabile</h3><p class="resource-status resource-push-status"><span class="resource-dot"></span><span>Lampada spenta</span></p><ul class="notes"><li>Il contatto si chiude solo durante la pressione.</li><li>Al rilascio una molla lo riporta aperto.</li><li>È tipico per campanelli, timer e bobine di comando.</li></ul></aside>
+        </section>
+
+        <section class="resource-example" id="resource-bipolar">
+          <div class="resource-stage">
+            <svg class="resource-svg" viewBox="0 0 930 470" aria-label="Interruttore bipolare">
+              <text x="35" y="42" class="resource-label">Interruzione di fase e neutro</text>
+              <text x="65" y="115" class="resource-label">L</text><text x="65" y="245" class="resource-label">N</text><text x="65" y="390" class="resource-label">PE</text>
+              <path class="resource-wire phase resource-bip-source-phase" d="M95 110 H280"></path><path class="resource-wire neutral resource-bip-source-neutral" d="M95 240 H280"></path><path class="resource-wire earth" d="M95 385 H790"></path>
+              <rect class="resource-component" x="280" y="55" width="205" height="235" rx="8"></rect><text x="313" y="315" class="resource-small">interruttore bipolare</text>
+              <circle class="resource-terminal" cx="315" cy="110" r="12"></circle><circle class="resource-terminal" cx="455" cy="110" r="12"></circle><line class="resource-blade resource-bip-blade-phase" x1="315" y1="110" x2="440" y2="78"></line>
+              <circle class="resource-terminal" cx="315" cy="240" r="12"></circle><circle class="resource-terminal" cx="455" cy="240" r="12"></circle><line class="resource-blade resource-bip-blade-neutral" x1="315" y1="240" x2="440" y2="208"></line>
+              <path class="resource-wire resource-bip-phase-out" d="M485 110 H710"></path><path class="resource-wire neutral resource-bip-neutral-out" d="M485 240 H760"></path>
+              <circle class="resource-lamp resource-bip-lamp" cx="765" cy="150" r="48"></circle><path class="resource-wire resource-bip-feed" d="M710 110 Q760 110 760 105"></path><path class="resource-wire neutral resource-bip-return" d="M760 240 V198"></path><path class="resource-wire earth" d="M805 385 V205"></path><text x="725" y="320" class="resource-small">lampada</text>
+            </svg>
+            <div class="component-controls one"><button class="resource-btn" type="button" data-resource-action="bip-toggle">Aziona bipolare</button></div>
+            <div class="resource-legend"><span class="resource-key"><span class="resource-swatch phase"></span>Fase</span><span class="resource-key"><span class="resource-swatch active"></span>Percorso attivo</span><span class="resource-key"><span class="resource-swatch neutral"></span>Neutro</span><span class="resource-key"><span class="resource-swatch earth"></span>Terra</span></div>
+          </div>
+          <aside class="resource-side"><h3>Interruttore bipolare</h3><p class="resource-status resource-bip-status"><span class="resource-dot"></span><span>Lampada spenta</span></p><ul class="notes"><li>Apre e chiude insieme fase e neutro.</li><li>Usa due contatti comandati dalla stessa leva.</li><li>È utile quando si vuole sezionare completamente un carico monofase.</li></ul></aside>
         </section>
 
         <section class="resource-example" id="resource-deviator">
@@ -735,6 +776,30 @@
             <div class="resource-legend"><span class="resource-key"><span class="resource-swatch phase"></span>Fase</span><span class="resource-key"><span class="resource-swatch active"></span>Percorso attivo</span><span class="resource-key"><span class="resource-swatch neutral"></span>Neutro</span><span class="resource-key"><span class="resource-swatch earth"></span>Terra</span></div>
           </div>
           <aside class="resource-side"><h3>Invertitore</h3><p class="resource-status resource-inv-status"><span class="resource-dot"></span><span>Lampada spenta</span></p><ul class="notes"><li>I deviatori restano alle estremità.</li><li>L'invertitore sta in mezzo alle navette.</li><li>Azionandolo incrocia o raddrizza i percorsi.</li></ul></aside>
+        </section>
+
+        <section class="resource-example" id="resource-steprelay">
+          <div class="resource-stage">
+            <svg class="resource-svg" viewBox="0 0 1080 540" aria-label="Relè passo-passo">
+              <text x="35" y="42" class="resource-label">Comando da molti punti con relè passo-passo</text>
+              <text x="55" y="105" class="resource-label">L</text><text x="55" y="405" class="resource-label">N</text><text x="55" y="475" class="resource-label">PE</text>
+              <path class="resource-wire neutral" d="M85 400 H930"></path><path class="resource-wire earth" d="M85 470 H930"></path><path class="resource-wire phase resource-relay-source" d="M85 100 H225"></path>
+              <path class="resource-wire phase" d="M170 100 V260 H240"></path>
+              <rect class="resource-component" x="240" y="215" width="150" height="135" rx="8"></rect><text x="255" y="374" class="resource-small">pulsanti in parallelo</text>
+              <circle class="resource-terminal" cx="270" cy="260" r="10"></circle><circle class="resource-terminal" cx="360" cy="260" r="10"></circle><line class="resource-blade resource-relay-btn-a" x1="270" y1="260" x2="348" y2="238"></line>
+              <circle class="resource-terminal" cx="270" cy="300" r="10"></circle><circle class="resource-terminal" cx="360" cy="300" r="10"></circle><line class="resource-blade resource-relay-btn-b" x1="270" y1="300" x2="348" y2="278"></line>
+              <circle class="resource-terminal" cx="270" cy="330" r="10"></circle><circle class="resource-terminal" cx="360" cy="330" r="10"></circle><line class="resource-blade resource-relay-btn-c" x1="270" y1="330" x2="348" y2="308"></line>
+              <path class="resource-wire resource-relay-coil-feed" d="M390 280 H500"></path>
+              <rect class="resource-component" x="500" y="70" width="230" height="265" rx="8"></rect><text x="544" y="360" class="resource-small">relè passo-passo</text>
+              <circle class="resource-terminal" cx="535" cy="100" r="11"></circle><circle class="resource-terminal" cx="700" cy="100" r="11"></circle><line class="resource-blade resource-relay-contact" x1="535" y1="100" x2="685" y2="68"></line>
+              <circle class="resource-terminal" cx="535" cy="280" r="11"></circle><circle class="resource-terminal" cx="690" cy="280" r="11"></circle><path class="resource-wire neutral" d="M610 400 V280"></path><path class="resource-blade resource-relay-coil" d="M548 280 q12 -28 24 0 t24 0 t24 0 t24 0"></path><text x="558" y="247" class="resource-small">bobina</text>
+              <path class="resource-wire resource-relay-contact-feed" d="M225 100 H535"></path><path class="resource-wire resource-relay-output" d="M730 100 H885"></path>
+              <circle class="resource-lamp resource-relay-lamp" cx="935" cy="140" r="48"></circle><path class="resource-wire resource-relay-lamp-feed" d="M885 100 Q930 100 930 95"></path><path class="resource-wire neutral" d="M935 400 V188"></path><path class="resource-wire earth" d="M975 470 V200"></path><text x="895" y="220" class="resource-small">lampada</text>
+            </svg>
+            <div class="component-controls three"><button class="resource-btn" type="button" data-resource-action="relay-pulse-a">Premi pulsante 1</button><button class="resource-btn" type="button" data-resource-action="relay-pulse-b">Premi pulsante 2</button><button class="resource-btn" type="button" data-resource-action="relay-pulse-c">Altro punto</button></div>
+            <div class="resource-legend"><span class="resource-key"><span class="resource-swatch phase"></span>Fase</span><span class="resource-key"><span class="resource-swatch active"></span>Percorso attivo</span><span class="resource-key"><span class="resource-swatch neutral"></span>Neutro</span><span class="resource-key"><span class="resource-swatch earth"></span>Terra</span></div>
+          </div>
+          <aside class="resource-side"><h3>Relè passo-passo</h3><p class="resource-status resource-relay-status"><span class="resource-dot"></span><span>Lampada spenta</span></p><ul class="notes"><li>I pulsanti sono collegati in parallelo sulla bobina.</li><li>Ogni impulso cambia lo stato del contatto del relè.</li><li>È pratico quando i punti di comando sono molti.</li></ul></aside>
         </section>
       </div>
     </section>
@@ -2445,12 +2510,17 @@ void loop() {
 
     const resourceState = {
       singleClosed: false,
+      pushPressed: false,
+      bipClosed: false,
       dev1: 0,
       dev2: 0,
       invD1: 0,
       invCross: false,
-      invD2: 0
+      invD2: 0,
+      relayClosed: false,
+      relayPulse: ""
     };
+    let relayPulseTimer = null;
 
     function toggleResourceClass(selector, className, active) {
       document.querySelectorAll(selector).forEach(node => node.classList.toggle(className, active));
@@ -2478,6 +2548,39 @@ void loop() {
       }
       setResourceLamp(".resource-single-lamp", on);
       setResourceStatus(".resource-single-status", on);
+    }
+
+    function renderResourcePushbutton() {
+      const on = resourceState.pushPressed;
+      toggleResourceClass(".resource-push-source", "active-wire", true);
+      toggleResourceClass(".resource-push-switched, .resource-push-feed", "active-wire", on);
+      const blade = document.querySelector(".resource-push-blade");
+      if (blade) {
+        blade.setAttribute("x2", on ? "445" : "430");
+        blade.setAttribute("y2", on ? "110" : "78");
+      }
+      setResourceLamp(".resource-push-lamp", on);
+      setResourceStatus(".resource-push-status", on);
+    }
+
+    function renderResourceBipolar() {
+      const on = resourceState.bipClosed;
+      toggleResourceClass(".resource-bip-source-phase", "active-wire", true);
+      toggleResourceClass(".resource-bip-phase-out, .resource-bip-feed", "active-wire", on);
+      toggleResourceClass(".resource-bip-source-neutral, .resource-bip-neutral-out, .resource-bip-return", "active-wire", on);
+
+      const phaseBlade = document.querySelector(".resource-bip-blade-phase");
+      const neutralBlade = document.querySelector(".resource-bip-blade-neutral");
+      if (phaseBlade) {
+        phaseBlade.setAttribute("x2", on ? "455" : "440");
+        phaseBlade.setAttribute("y2", on ? "110" : "78");
+      }
+      if (neutralBlade) {
+        neutralBlade.setAttribute("x2", on ? "455" : "440");
+        neutralBlade.setAttribute("y2", on ? "240" : "208");
+      }
+      setResourceLamp(".resource-bip-lamp", on);
+      setResourceStatus(".resource-bip-status", on);
     }
 
     function renderResourceDeviators() {
@@ -2529,10 +2632,37 @@ void loop() {
       setResourceStatus(".resource-inv-status", on);
     }
 
+    function renderResourceStepRelay() {
+      const on = resourceState.relayClosed;
+      toggleResourceClass(".resource-relay-source, .resource-relay-contact-feed", "active-wire", true);
+      toggleResourceClass(".resource-relay-output, .resource-relay-lamp-feed", "active-wire", on);
+      toggleResourceClass(".resource-relay-coil-feed, .resource-relay-coil", "active-wire", Boolean(resourceState.relayPulse));
+
+      const contact = document.querySelector(".resource-relay-contact");
+      if (contact) {
+        contact.setAttribute("x2", on ? "700" : "685");
+        contact.setAttribute("y2", on ? "100" : "68");
+      }
+
+      document.querySelectorAll(".resource-relay-btn-a, .resource-relay-btn-b, .resource-relay-btn-c").forEach(buttonBlade => {
+        const active = buttonBlade.classList.contains(`resource-relay-btn-${resourceState.relayPulse}`);
+        const y1 = buttonBlade.getAttribute("y1");
+        buttonBlade.setAttribute("x2", active ? "360" : "348");
+        buttonBlade.setAttribute("y2", active ? y1 : String(Number(y1) - 22));
+        buttonBlade.classList.toggle("active-wire", active);
+      });
+
+      setResourceLamp(".resource-relay-lamp", on);
+      setResourceStatus(".resource-relay-status", on);
+    }
+
     function renderResources() {
       renderResourceSingle();
+      renderResourcePushbutton();
+      renderResourceBipolar();
       renderResourceDeviators();
       renderResourceInvertitore();
+      renderResourceStepRelay();
     }
 
     function attachResourceInteractions() {
@@ -2549,12 +2679,41 @@ void loop() {
         const action = event.target.closest("[data-resource-action]")?.dataset.resourceAction;
         if (!action) return;
         if (action === "single-toggle") resourceState.singleClosed = !resourceState.singleClosed;
+        if (action === "bip-toggle") resourceState.bipClosed = !resourceState.bipClosed;
         if (action === "dev1-toggle") resourceState.dev1 = resourceState.dev1 ? 0 : 1;
         if (action === "dev2-toggle") resourceState.dev2 = resourceState.dev2 ? 0 : 1;
         if (action === "inv-d1-toggle") resourceState.invD1 = resourceState.invD1 ? 0 : 1;
         if (action === "inv-toggle") resourceState.invCross = !resourceState.invCross;
         if (action === "inv-d2-toggle") resourceState.invD2 = resourceState.invD2 ? 0 : 1;
+        if (action.startsWith("relay-pulse")) {
+          resourceState.relayClosed = !resourceState.relayClosed;
+          resourceState.relayPulse = action.replace("relay-pulse-", "");
+          window.clearTimeout(relayPulseTimer);
+          relayPulseTimer = window.setTimeout(() => {
+            resourceState.relayPulse = "";
+            renderResources();
+          }, 260);
+        }
         renderResources();
+      });
+
+      document.querySelectorAll("[data-resource-press='pushbutton']").forEach(button => {
+        const setPressed = pressed => {
+          resourceState.pushPressed = pressed;
+          renderResources();
+        };
+
+        button.addEventListener("pointerdown", event => {
+          button.setPointerCapture?.(event.pointerId);
+          setPressed(true);
+        });
+        button.addEventListener("pointerup", () => setPressed(false));
+        button.addEventListener("pointercancel", () => setPressed(false));
+        button.addEventListener("pointerleave", () => setPressed(false));
+        button.addEventListener("keydown", event => {
+          if (event.key === " " || event.key === "Enter") setPressed(true);
+        });
+        button.addEventListener("keyup", () => setPressed(false));
       });
     }
 
